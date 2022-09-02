@@ -10,8 +10,8 @@ phases:
       - aws --version
       - pip install --upgrade awscli==1.18.17
       - docker login --username $username --password $password
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 277245384637.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=277245384637.dkr.ecr.us-east-1.amazonaws.com/sample
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 106036894611.dkr.ecr.ap-south-1.amazonaws.com
+      - REPOSITORY_URI=106036894611.dkr.ecr.ap-south-1.amazonaws.com/demo
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       
