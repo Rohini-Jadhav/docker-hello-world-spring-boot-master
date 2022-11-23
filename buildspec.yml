@@ -9,9 +9,9 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - pip install --upgrade awscli==1.18.17
-      - docker login --username $username --password $password
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 106036894611.dkr.ecr.ap-south-1.amazonaws.com
-      - REPOSITORY_URI=106036894611.dkr.ecr.ap-south-1.amazonaws.com/demo
+      #- docker login --username $username --password $password
+      - aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 661907950294.dkr.ecr.eu-west-3.amazonaws.com
+      - REPOSITORY_URI=661907950294.dkr.ecr.eu-west-3.amazonaws.com/test
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       
@@ -28,7 +28,7 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"hello-world","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - printf '[{"name":"test","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
       
 artifacts:
     files: imagedefinitions.json
