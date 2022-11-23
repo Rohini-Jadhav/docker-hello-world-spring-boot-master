@@ -1,8 +1,8 @@
 version: 0.2
 env:
   parameter-store:
-    username: /user/name
-    password: /pass/word
+    #username: /user/name
+    #password: /pass/word
 phases:
   pre_build:
     commands:
