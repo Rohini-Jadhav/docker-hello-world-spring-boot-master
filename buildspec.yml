@@ -1,6 +1,6 @@
 version: 0.2
-env:
-  parameter-store:
+#env:
+  #parameter-store:
     #username: /user/name
     #password: /pass/word
 phases:
